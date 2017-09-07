@@ -10,6 +10,7 @@ class Coin
      while (amount >= 25)
        amount -= dens.fetch('quarter')
        ch_arrays.push('quarter')
+
      end
        while (amount >= 10)
          amount -= dens.fetch('dime')
@@ -23,6 +24,10 @@ class Coin
              amount -= dens.fetch('penny')
              ch_arrays.push('penny')
             end
-      ch_arrays
-  end
+       counts = Hash.new(0)
+       ch_arrays.each {|coin| counts[coin] +=1}
+       counts.each do |key,value|
+          print 'You have:' + " #{key} : #{value} "
+        end
+    end
 end
